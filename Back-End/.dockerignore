@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.swp
+.env
+db.sqlite3
+venv/
+.venv/
+/staticfiles/
+/media/
+*.log

@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./Back-End
+    container_name: tuni_backend
+    volumes:
+      - ./Back-End:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./Back-End/.env
+    depends_on:
+      - db
+
+  frontend:
+    build: ./Front-End/my-react-app
+    container_name: tuni_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:16
+    container_name: tuni_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: tuni_db
+      POSTGRES_USER: tuni_user
+      POSTGRES_PASSWORD: tuni_pass
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: tuni_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:

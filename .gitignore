@@ -1,0 +1,12 @@
+# Ignore all CSV and TXT data exports
+*.csv
+*.txt
+*.pyc
+/.idea
+/Data-Scraping-Scripts/airflow/logs/
+/Data-Scraping-Scripts/mytek/mytek.txt
+/Data-Scraping-Scripts/mytek/mytek_to_correct.txt
+/Data-Scraping-Scripts/mytek/corrected_mytek.txt
+/Data-Scraping-Scripts/spacenet/spacenet.txt
+/Data-Scraping-Scripts/tunisianet/tunisianet.txt
+*.pdf
