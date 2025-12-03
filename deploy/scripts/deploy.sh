@@ -19,6 +19,10 @@ echo "Applying secrets and config..."
 kubectl apply -f "${SECRETS_FILE}"
 kubectl apply -f deploy/k8s/backend-configmap.yaml
 
+echo "Resetting Postgres (ephemeral DB; deletes any existing data)..."
+kubectl delete statefulset/postgres -n "${NAMESPACE}" --ignore-not-found
+kubectl delete pvc/postgres-data-postgres-0 -n "${NAMESPACE}" --ignore-not-found
+
 echo "Deploying Postgres (StatefulSet)..."
 kubectl apply -f deploy/k8s/postgres.yaml
 
@@ -27,6 +31,9 @@ BACKEND_IMAGE="${BACKEND_IMAGE}" envsubst < deploy/k8s/backend.yaml | kubectl ap
 
 echo "Deploying frontend..."
 FRONTEND_IMAGE="${FRONTEND_IMAGE}" envsubst < deploy/k8s/frontend.yaml | kubectl apply -f -
+
+echo "Forcing backend restart to pick up config/secret changes..."
+kubectl rollout restart deployment/backend -n "${NAMESPACE}"
 
 echo "Applying ingress..."
 kubectl apply -f deploy/k8s/ingress.yaml

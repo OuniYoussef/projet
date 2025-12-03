@@ -1,0 +1,43 @@
+Warning
+FailedScheduling
+2 minutes ago
+default-scheduler
+no nodes available to schedule pods
+Inspect
+Warning
+FailedScheduling
+2 minutes ago
+eks-auto-mode/compute
+Failed to schedule pod, label is restricted; specify a well known label or a custom label that does not use a restricted domain (label=node-role.kubernetes.io/db, restricted-labels=[k8s.io karpenter.k8s.aws karpenter.sh kubernetes.io], well-known-labels=[app.kubernetes.io/managed-by eks.amazonaws.com/capacity-reservation-id eks.amazonaws.com/capacity-reservation-type eks.amazonaws.com/compute-type eks.amazonaws.com/instance-accelerator-count eks.amazonaws.com/instance-accelerator-manufacturer eks.amazonaws.com/instance-accelerator-name eks.amazonaws.com/instance-capability-flex eks.amazonaws.com/instance-category eks.amazonaws.com/instance-cpu eks.amazonaws.com/instance-cpu-manufacturer eks.amazonaws.com/instance-cpu-sustained-clock-speed-mhz eks.amazonaws.com/instance-ebs-bandwidth eks.amazonaws.com/instance-encryption-in-transit-supported eks.amazonaws.com/instance-family eks.amazonaws.com/instance-generation eks.amazonaws.com/instance-gpu-count eks.amazonaws.com/instance-gpu-manufacturer eks.amazonaws.com/instance-gpu-memory eks.amazonaws.com/instance-gpu-name eks.amazonaws.com/instance-hypervisor eks.amazonaws.com/instance-local-nvme eks.amazonaws.com/instance-memory eks.amazonaws.com/instance-network-bandwidth eks.amazonaws.com/instance-size karpenter.sh/capacity-type karpenter.sh/nodepool kubernetes.io/arch kubernetes.io/os node.kubernetes.io/instance-type node.kubernetes.io/windows-build topology.k8s.aws/zone-id topology.kubernetes.io/region topology.kubernetes.io/zone]); failed to validate pvc, provisioner is not supported (PersistentVolumeClaim=tuni-app/postgres-data-postgres-0, Provisioner=ebs.csi.aws.com, StorageClass=gp2)
+Inspect
+Warning
+FailedScheduling
+2 minutes ago
+default-scheduler
+no nodes available to schedule pods
+Inspect
+Warning
+FailedScheduling
+a few seconds ago
+default-scheduler
+0/3 nodes are available: 1 node(s) didn't match Pod's node affinity/selector, 2 node(s) had untolerated taint {CriticalAddonsOnly: }. no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+Inspect
+Warning
+FailedScheduling
+a few seconds ago
+default-scheduler
+0/3 nodes are available: 1 node(s) didn't match Pod's node affinity/selector, 2 node(s) had untolerated taint {CriticalAddonsOnly: }. no new claims to deallocate, preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling.
+Inspect
+
+
+
+
+
+Waiting for deployment "backend" rollout to finish: 0 of 2 updated replicas are available...
+
+
+
+
+
+
+
